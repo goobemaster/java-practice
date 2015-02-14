@@ -24,4 +24,11 @@ public class JUnitTest1 {
 
     org.junit.Assert.assertEquals("Service responded with error code!", 200, this.client.responseCode);
   }
+
+  @Test
+  public void returnsFields() throws Exception {
+    this.callService("GET", "/posts/1");
+
+    org.junit.Assert.assertEquals("Service returned wrong number of fields!\n" + this.client.response, 4, (int)this.client.responseJSON().size());
+  }
 }

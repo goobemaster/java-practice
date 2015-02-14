@@ -6,6 +6,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
+import org.json.simple.parser.ParseException;
+import org.json.simple.parser.JSONParser;
 
 public class HttpClient {
   URL serverUrl;
@@ -58,6 +62,11 @@ public class HttpClient {
     inputStream.close();
 
     return response.toString();
+  }
+
+  public JSONObject responseJSON() throws Exception {
+    JSONParser parser = new JSONParser();
+    return (JSONObject)parser.parse(this.response);
   }
 
   public Boolean get(String path) throws Exception {
