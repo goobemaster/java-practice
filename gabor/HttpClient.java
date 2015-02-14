@@ -1,3 +1,5 @@
+package gabor;
+
 import java.net.*;
 import java.net.HttpURLConnection;
 import java.util.HashMap;
@@ -5,24 +7,24 @@ import java.util.Map;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-class HttpClient {
+public class HttpClient {
   URL serverUrl;
   Map<String, String> headers;
-  int responseCode;
-  String response;
+  public int responseCode;
+  public String response;
 
-  public static void main(String[] args) throws Exception {
-    HttpClient client = new HttpClient("http://jsonplaceholder.typicode.com");
-    client.addHeader("User-Agent", "Mozilla/5.0");
-    client.addHeader("Accept-Language", "en-US,en;q=0.5");
+//  public static void main(String[] args) throws Exception {
+//    HttpClient client = new HttpClient("http://jsonplaceholder.typicode.com");
+//    client.addHeader("User-Agent", "Mozilla/5.0");
+//    client.addHeader("Accept-Language", "en-US,en;q=0.5");
+//
+//    System.out.println("Test - Send HTTP GET request");
+//    client.get("/posts/1");
+//    System.out.println("Response code: " + client.responseCode);
+//    System.out.println("Response: \n" + client.response);
+//  }
 
-    System.out.println("Test - Send HTTP GET request");
-    client.get("/posts/1");
-    System.out.println("Response code: " + client.responseCode);
-    System.out.println("Response: \n" + client.response);
-  }
-
-  HttpClient(String url) throws MalformedURLException {
+  public HttpClient(String url) throws MalformedURLException {
     this.serverUrl = new URL(url);
     this.headers = new HashMap<String, String>(0);
     this.responseCode = 0;

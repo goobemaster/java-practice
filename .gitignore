@@ -2,3 +2,6 @@
 
 .idea/*
 .idea/workspace.xml
+libs/*.jar
+FXHttpGet.java
+out/*
