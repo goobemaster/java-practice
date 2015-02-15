@@ -3,5 +3,6 @@
 .idea/*
 .idea/workspace.xml
 libs/*.jar
+libs/libs/*.jar
 FXHttpGet.java
 out/*
