@@ -1,7 +1,8 @@
 package gabor.sections;
 
-import gabor.WebTestSection;
 import org.openqa.selenium.WebDriver;
+
+import gabor.WebTestSection;
 import java.util.Calendar;
 
 public class WizardSection extends WebTestSection {

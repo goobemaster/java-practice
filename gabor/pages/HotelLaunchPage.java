@@ -1,8 +1,9 @@
 package gabor.pages;
 
+import org.openqa.selenium.WebDriver;
+
 import gabor.WebTestPage;
 import gabor.sections.*;
-import org.openqa.selenium.WebDriver;
 
 public class HotelLaunchPage extends WebTestPage {
   public WizardSection wizard;
@@ -14,6 +15,10 @@ public class HotelLaunchPage extends WebTestPage {
     setUrlMatcher("\\/Hotels$");
 
     wizard = new WizardSection(driver, "#widgetcatalogWizard");
-    addElement("ResultTitle", "#hotelResultTitle");
+    addElement("PageId", "#pageId");
+  }
+
+  public boolean pageCheck() {
+    return this.element("PageId").getAttribute("value").equals("page.Hotels");
   }
 }

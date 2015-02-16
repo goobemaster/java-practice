@@ -3,8 +3,11 @@ package gabor;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class WebTestPage {
   WebDriver driver;
@@ -29,10 +32,8 @@ public class WebTestPage {
     this.urlMatcher = urlMatcher;
   }
 
-  public void load() {
-    String url = this.baseUrl + this.url;
-    System.out.printf("Navigating to: " + url);
-    this.driver.get(url);
+  public boolean pageCheck() {
+    return true;
   }
 
   public void addElement(String name, String cssSelector) {
@@ -41,5 +42,28 @@ public class WebTestPage {
 
   public WebElement element(String name) {
     return this.driver.findElement(By.cssSelector(elements.get(name)));
+  }
+
+  public void load() {
+    String url = this.baseUrl + this.url;
+    System.out.printf("Navigating to: " + url);
+    this.driver.get(url);
+  }
+
+  public void load(HashMap<String, String> params) {
+    String url = this.baseUrl + this.url;
+
+    for(Map.Entry<String, String> entry : params.entrySet()) {
+      url = url.replaceAll("\\{" + entry.getKey() + "\\}", entry.getValue());
+    }
+
+    System.out.printf("Navigating to: " + url);
+    this.driver.get(url);
+  }
+
+  public boolean displayed() {
+    Pattern pattern = Pattern.compile(this.urlMatcher);
+    Matcher matcher = pattern.matcher(this.driver.getCurrentUrl());
+    return matcher.find() && this.pageCheck();
   }
 }

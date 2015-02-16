@@ -1,16 +1,18 @@
 package gabor;
 
-import gabor.pages.*;
-import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import org.junit.*;
 import java.util.concurrent.TimeUnit;
+import gabor.pages.*;
 
 public class WebTest {
   static WebDriver driver;
   static String baseUrl;
 
   static public HotelLaunchPage hotelLaunchPage;
+  static public HotelSearchPage hotelSearchPage;
 
   @BeforeClass
   public static void setUp() {
@@ -19,6 +21,7 @@ public class WebTest {
     baseUrl = "http://www.expedia.co.uk/";
 
     hotelLaunchPage = new HotelLaunchPage(driver, baseUrl);
+    hotelSearchPage = new HotelSearchPage(driver, baseUrl);
   }
 
   @AfterClass
