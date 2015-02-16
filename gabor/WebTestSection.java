@@ -8,9 +8,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class WebTestSection {
-  WebDriver driver;
-  String rootSelector;
-  static Map<String, String> elements;
+  public WebDriver driver;
+  public String rootSelector;
+  public Map<String, String> elements;
 
   public WebTestSection(WebDriver driver, String rootSelector) {
     this.driver = driver;

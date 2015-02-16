@@ -11,17 +11,20 @@ public class WebTest {
   static WebDriver driver;
   static String baseUrl;
 
-  static public HotelLaunchPage hotelLaunchPage;
-  static public HotelSearchPage hotelSearchPage;
+  public HotelLaunchPage hotelLaunchPage;
+  public HotelSearchPage hotelSearchPage;
 
   @BeforeClass
   public static void setUp() {
     driver = new FirefoxDriver();
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     baseUrl = "http://www.expedia.co.uk/";
+  }
 
-    hotelLaunchPage = new HotelLaunchPage(driver, baseUrl);
-    hotelSearchPage = new HotelSearchPage(driver, baseUrl);
+  @Before
+  public void SetUpTest() {
+    this.hotelLaunchPage = new HotelLaunchPage(driver, baseUrl);
+    this.hotelSearchPage = new HotelSearchPage(driver, baseUrl);
   }
 
   @AfterClass

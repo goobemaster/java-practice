@@ -57,7 +57,7 @@ public class WebTestPage {
       url = url.replaceAll("\\{" + entry.getKey() + "\\}", entry.getValue());
     }
 
-    System.out.printf("Navigating to: " + url);
+    System.out.printf("Navigating to: " + url + "\n");
     this.driver.get(url);
   }
 

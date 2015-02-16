@@ -8,6 +8,7 @@ import gabor.WebTestPage;
 import gabor.sections.*;
 
 public class HotelSearchPage extends WebTestPage {
+  public ResultsSection results;
 
   public HotelSearchPage(WebDriver driver, String baseUrl) {
     super(driver, baseUrl);
@@ -15,12 +16,13 @@ public class HotelSearchPage extends WebTestPage {
     setUrl("Hotel-Search?storedCheckoutField=&storedCheckinField=&lang=2057#destination={destination}&startDate={startDate}&endDate={endDate}&adults={adults}&star={star}");
     setUrlMatcher("\\/Hotel-Search?.+");
 
+    results = new ResultsSection(driver, "#resultsContainer");
     addElement("PageId", "#pageId");
     addElement("ResultTitle", "#hotelResultTitle");
   }
 
   public boolean pageCheck() {
-    return this.element("PageId").getAttribute("value").equals("page.Hotels");
+    return this.element("PageId").getAttribute("value").equals("page.Hotel-Search");
   }
 
   public void loadResultsFor(String destination, int checkInLambda, int checkOutLambda) {
