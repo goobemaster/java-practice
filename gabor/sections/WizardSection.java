@@ -16,7 +16,7 @@ public class WizardSection extends WebTestSection {
     addElement("SearchButton", "#H-searchButton");
   }
 
-  public void searchForHotel(String destination, int checkInLambda, int checkOutLambda) {
+  public void searchForHotel(String destination, int checkInLambda, int checkOutLambda) throws Exception {
     this.element("Destination").clear();
     this.element("Destination").sendKeys(destination);
 

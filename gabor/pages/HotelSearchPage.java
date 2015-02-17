@@ -25,7 +25,7 @@ public class HotelSearchPage extends WebTestPage {
     return this.element("PageId").getAttribute("value").equals("page.Hotel-Search");
   }
 
-  public void loadResultsFor(String destination, int checkInLambda, int checkOutLambda) {
+  public void loadResultsFor(String destination, int checkInLambda, int checkOutLambda) throws Exception {
     HashMap<String, String> params = new HashMap<String, String>(0);
 
     Calendar fromDate = Calendar.getInstance();

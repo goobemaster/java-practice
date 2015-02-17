@@ -14,15 +14,15 @@ public class ResultSection extends WebTestSection {
     addElement("Price", "span.actualPrice");
   }
 
-  public String hotelName() {
+  public String hotelName() throws Exception {
     return this.element("HotelName").getText();
   }
 
-  public Integer price() {
+  public Integer price() throws Exception {
     return Integer.parseInt(this.element("Price").getText().replaceAll("[^0-9]", ""));
   }
 
-  public void select() {
+  public void select() throws Exception {
     this.element("BookLink").click();
   }
 

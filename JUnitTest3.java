@@ -3,7 +3,7 @@ import org.junit.*;
 public class JUnitTest3 extends gabor.WebTest {
 
   @Test
-  public void verifyHotelSearch() {
+  public void verifyHotelSearch() throws Exception {
     // Wizard
     hotelLaunchPage.load();
     hotelLaunchPage.wizard.searchForHotel("Las Vegas", 10, 15);
@@ -13,14 +13,14 @@ public class JUnitTest3 extends gabor.WebTest {
   }
 
   @Test
-  public void verifyDeepLinkHotelSearch() {
+  public void verifyDeepLinkHotelSearch() throws Exception {
     hotelSearchPage.loadResultsFor("Las Vegas", 10, 15);
 
     org.junit.Assert.assertTrue("Title doesn't include the destination!", hotelSearchPage.element("ResultTitle").getText().contains("Las Vegas"));
   }
 
   @Test
-  public void verifyHotelSearchResults() {
+  public void verifyHotelSearchResults() throws Exception {
     hotelSearchPage.loadResultsFor("Las Vegas", 10, 15);
 
     org.junit.Assert.assertTrue("There are no results displayed on Hotel Search Page!", hotelSearchPage.results.size() > 0);
